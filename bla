@@ -1,0 +1,59 @@
+using UnityEngine;
+using System.Collections;
+
+public class Level1 : MonoBehaviour {
+	public int play = 0;
+	public GamePlay GamePlay;
+	public bool pl = false;
+	public bool Cam = true;
+	public bool start = false;
+	public Levels Levels;
+
+	
+	// Use this for initialization
+	void Update(){
+
+		if ((GamePlay.IsCreated == false) && (play == 0) && (pl == false)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = true;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 1) && (pl == true)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = false;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 2) && (pl == false)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = true;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 3) && (pl == true)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = false;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 4) && (pl == false)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = true;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 5) && (pl == true)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = false;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 6) && (pl == false)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = true;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 7) && (pl == true)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = false;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 8) && (pl == false)){
+			Instantiate(Resources.Load("Pizza"), new Vector3(-128.5855f,-272.002f,-104.7221f), Quaternion.identity);
+			pl = true;
+		}
+		else if ((GamePlay .IsCreated == false) && (play == 9) && (pl == true)){
+			pl = false;
+			Levels.lvlone.gameObject.SetActive(false);
+			Levels.lvloneend.gameObject.SetActive(true);
+		}
+
+	}
+}
