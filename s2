@@ -1,0 +1,549 @@
+using UnityEngine;
+using System.Collections;
+
+public class Gameplay2 : MonoBehaviour {
+	public int slice = 0;
+	private Vector2 fp; // first finger position
+	private Vector2 lp; // last finger position
+	public Score Score;
+	public bool Firsttime = false;
+	public AudioClip Sound;
+	public AudioClip Sound1;
+	public Tut Tut;
+	public bool IsCreated = false;
+	public int pola = 0;
+	public bool left1 = false;
+	public bool right1 = false;
+	public bool up1 = false;
+	public bool down1 = false;
+	public bool touch1 = false;
+	public Level1 Level1;
+	
+	// Update is called once per frame
+	void Update () {
+		int randomPick = Mathf.Abs(Random.Range(1,40));
+		foreach(Touch touch in Input.touches)
+		{
+			if (touch.phase == TouchPhase.Began)
+			{
+				fp = touch.position;
+				lp = touch.position;
+			}
+			if (touch.phase == TouchPhase.Moved )
+			{
+				lp = touch.position;
+			}
+			if(touch.phase == TouchPhase.Ended)
+			{
+				if(((fp.x - lp.x) > 80)  && (slice == 1) && (pola == 1) && (GameObject.Find("P-Slice1"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice1"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 1) && (pola == 2) && (GameObject.Find("P-Slice1"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice1"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 1) && (pola == 3) && (GameObject.Find("P-Slice1"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice1"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 1) && (pola == 4) && (GameObject.Find("P-Slice1"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice1"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 1) && (pola == 5) && (GameObject.Find("P-Slice1"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice1"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				if(((fp.x - lp.x) > 80)  && (slice == 2) && (pola == 6) && (GameObject.Find("P-Slice2"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice2"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 2) && (pola == 7) && (GameObject.Find("P-Slice2"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice2"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 2) && (pola == 8) && (GameObject.Find("P-Slice2"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice2"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 2) && (pola == 9) && (GameObject.Find("P-Slice2"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice2"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 2) && (pola == 10) && (GameObject.Find("P-Slice2"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice2"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 3) && (pola == 11) && (GameObject.Find("P-Slice3"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 3) && (pola == 12) && (GameObject.Find("P-Slice3"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 3) && (pola == 13) && (GameObject.Find("P-Slice3"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 3) && (pola == 14) && (GameObject.Find("P-Slice3"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 3) && (pola == 15) && (GameObject.Find("P-Slice3"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 4) && (pola == 16) && (GameObject.Find("P-Slice4"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice4"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 4) && (pola == 17) && (GameObject.Find("P-Slice4"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice4"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 4) && (pola == 18) && (GameObject.Find("P-Slice4"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice4"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 4) && (pola == 19) && (GameObject.Find("P-Slice4"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice4"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 4) && (pola == 20) && (GameObject.Find("P-Slice4"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice4"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 5) && (pola == 21) && (GameObject.Find("P-Slice5"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice5"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 5) && (pola == 22) && (GameObject.Find("P-Slice5"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice5"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 5) && (pola == 23) && (GameObject.Find("P-Slice5"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice5"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 5) && (pola == 24) && (GameObject.Find("P-Slice5"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice5"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 5) && (pola == 25) && (GameObject.Find("P-Slice5"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice5"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 6) && (pola == 26) && (GameObject.Find("P-Slice6"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice6"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 6) && (pola == 27) && (GameObject.Find("P-Slice6"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice6"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 6) && (pola == 28) && (GameObject.Find("P-Slice6"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice6"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 6) && (pola == 29) && (GameObject.Find("P-Slice6"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice6"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 6) && (pola == 30) && (GameObject.Find("P-Slice6"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice6"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 7) && (pola == 31) && (GameObject.Find("P-Slice7"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice7"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 7) && (pola == 32) && (GameObject.Find("P-Slice7"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice7"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 7) && (pola == 33) && (GameObject.Find("P-Slice7"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice7"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 7) && (pola == 34) && (GameObject.Find("P-Slice7"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice7"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 7) && (pola == 35) && (GameObject.Find("P-Slice7"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice7"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if(((fp.x - lp.x) > 80)  && (slice == 8) && (pola == 36) && (GameObject.Find("P-Slice8"))) // left swipe
+				{
+					Destroy (GameObject.Find("P-Slice8"));
+					Score.score += 100;
+					Firsttime = true;
+					audio.PlayOneShot(Sound);
+					audio.PlayOneShot(Sound1);
+				}
+				else if(((fp.x - lp.x) < -80) && (slice == 8) && (pola == 37) && (GameObject.Find("P-Slice8"))) // right swipe
+				{
+					Destroy (GameObject.Find("P-Slice8"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) < -80)  && (slice == 8) && (pola == 38) && (GameObject.Find("P-Slice8"))) // up swipe
+				{
+					Destroy (GameObject.Find("P-Slice8"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if(((fp.y - lp.y) > 80)  && (slice == 8) && (pola == 39) && (GameObject.Find("P-Slice8"))) // down swipe
+				{
+					Destroy (GameObject.Find("P-Slice3"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+				else if ((Input.GetMouseButtonDown(0)) && (slice == 8) && (pola == 40) && (GameObject.Find("P-Slice8"))) // touch
+				{
+					Destroy (GameObject.Find("P-Slice8"));
+					Score.score += 100;
+					audio.PlayOneShot(Sound);
+				}
+
+				if((randomPick == 1) && (GameObject.Find("P-Slice1"))){
+					slice = 1;
+					pola = 1;
+					left1 = true;
+				}
+				if((randomPick == 2) && (GameObject.Find("P-Slice1"))){
+					slice = 1;
+					pola = 2;
+					right1 = true;
+				}
+				if((randomPick == 3) && (GameObject.Find("P-Slice1"))){
+					slice = 1;
+					pola = 3;
+					up1 = true;
+				}
+				if((randomPick == 4) && (GameObject.Find("P-Slice1"))){
+					slice = 1;
+					pola = 4;
+					down1 = true;
+				}
+				if((randomPick == 5) && (GameObject.Find("P-Slice1"))){
+					slice = 1;
+					pola = 5;
+					touch1 = true;
+				}
+				if((randomPick == 6) && (GameObject.Find("P-Slice2"))){
+					slice = 2;
+					pola = 6;
+					left1 = true;
+				}
+				if((randomPick == 7) && (GameObject.Find("P-Slice2"))){
+					slice = 2;
+					pola = 7;
+					right1 = true;
+				}
+				if((randomPick == 8) && (GameObject.Find("P-Slice2"))){
+					slice = 2;
+					pola = 8;
+					up1 = true;
+				}
+				if((randomPick == 9) && (GameObject.Find("P-Slice2"))){
+					slice = 2;
+					pola = 9;
+					down1 = true;
+				}
+				if((randomPick == 10) && (GameObject.Find("P-Slice2"))){
+					slice = 2;
+					pola = 10;
+					touch1 = true;
+				}
+				if((randomPick == 11) && (GameObject.Find("P-Slice3"))){
+					slice = 3;
+					pola = 11;
+					left1 = true;
+				}
+				if((randomPick == 12) && (GameObject.Find("P-Slice3"))){
+					slice = 3;
+					pola = 12;
+					right1 = true;
+				}
+				if((randomPick == 13) && (GameObject.Find("P-Slice3"))){
+					slice = 3;
+					pola = 13;
+					up1 = true;
+				}
+				if((randomPick == 14) && (GameObject.Find("P-Slice3"))){
+					slice = 3;
+					pola = 14;
+					down1 = true;
+				}
+				if((randomPick == 15) && (GameObject.Find("P-Slice3"))){
+					slice = 3;
+					pola = 15;
+					touch1 = true;
+				}
+				if((randomPick == 16) && (GameObject.Find("P-Slice4"))){
+					slice = 4;
+					pola = 16;
+					left1 = true;
+				}
+				if((randomPick == 17) && (GameObject.Find("P-Slice4"))){
+					slice = 4;
+					pola = 17;
+					right1 = true;
+				}
+				if((randomPick == 18) && (GameObject.Find("P-Slice4"))){
+					slice = 4;
+					pola = 18;
+					up1 = true;
+				}
+				if((randomPick == 19) && (GameObject.Find("P-Slice4"))){
+					slice = 4;
+					pola = 19;
+					down1 = true;
+				}
+				if((randomPick == 20) && (GameObject.Find("P-Slice4"))){
+					slice = 4;
+					pola = 20;
+					touch1 = true;
+				}
+				if((randomPick == 21) && (GameObject.Find("P-Slice5"))){
+					slice = 5;
+					pola = 21;
+					left1 = true;
+				}
+				if((randomPick == 22) && (GameObject.Find("P-Slice5"))){
+					slice = 5;
+					pola = 22;
+					right1 = true;
+				}
+				if((randomPick == 23) && (GameObject.Find("P-Slice5"))){
+					slice = 5;
+					pola = 23;
+					up1 = true;
+				}
+				if((randomPick == 24) && (GameObject.Find("P-Slice5"))){
+					slice = 5;
+					pola = 24;
+					down1 = true;
+				}
+				if((randomPick == 25) && (GameObject.Find("P-Slice5"))){
+					slice = 5;
+					pola = 25;
+					touch1 = true;
+				}
+				if((randomPick == 26) && (GameObject.Find("P-Slice6"))){
+					slice = 6;
+					pola = 26;
+					left1 = true;
+				}
+				if((randomPick == 27) && (GameObject.Find("P-Slice6"))){
+					slice = 6;
+					pola = 27;
+					right1 = true;
+				}
+				if((randomPick == 28) && (GameObject.Find("P-Slice6"))){
+					slice = 6;
+					pola = 28;
+					up1 = true;
+				}
+				if((randomPick == 29) && (GameObject.Find("P-Slice6"))){
+					slice = 6;
+					pola = 29;
+					down1 = true;
+				}
+				if((randomPick == 30) && (GameObject.Find("P-Slice6"))){
+					slice = 6;
+					pola = 30;
+					touch1 = true;
+				}
+				if((randomPick == 31) && (GameObject.Find("P-Slice7"))){
+					slice = 7;
+					pola = 31;
+					left1 = true;
+				}
+				if((randomPick == 32) && (GameObject.Find("P-Slice7"))){
+					slice = 7;
+					pola = 32;
+					right1 = true;
+				}
+				if((randomPick == 33) && (GameObject.Find("P-Slice7"))){
+					slice = 7;
+					pola = 33;
+					up1 = true;
+				}
+				if((randomPick == 34) && (GameObject.Find("P-Slice7"))){
+					slice = 7;
+					pola = 34;
+					down1 = true;
+				}
+				if((randomPick == 35) && (GameObject.Find("P-Slice7"))){
+					slice = 7;
+					pola = 35;
+					touch1 = true;
+				}
+				if((randomPick == 36) && (GameObject.Find("P-Slice8"))){
+					slice = 8;
+					pola = 36;
+					left1 = true;
+				}
+				if((randomPick == 37) && (GameObject.Find("P-Slice8"))){
+					slice = 8;
+					pola = 37;
+					right1 = true;
+				}
+				if((randomPick == 38) && (GameObject.Find("P-Slice8"))){
+					slice = 8;
+					pola = 38;
+					up1 = true;
+				}
+				if((randomPick == 39) && (GameObject.Find("P-Slice8"))){
+					slice = 8;
+					pola = 39;
+					down1 = true;
+				}
+				if((randomPick == 40) && (GameObject.Find("P-Slice8"))){
+					slice = 8;
+					pola = 40;
+					touch1 = true;
+				}
+			}
+			if ((left1 == true)){
+				Destroy (GameObject.Find("Arrow-R(Clone)"));
+				Destroy (GameObject.Find("Arrow-L(Clone)"));
+				Destroy (GameObject.Find("Arrow-U(Clone)"));
+				Destroy (GameObject.Find("Arrow-D(Clone)"));
+				Destroy (GameObject.Find("Touch(Clone)"));
+				Instantiate(Resources.Load("Arrow-L"), new Vector3(0.85f,0.85f,0.85f), Quaternion.identity);
+				left1 = false;
+			}
+			if ((right1 == true)){
+				Destroy (GameObject.Find("Arrow-R(Clone)"));
+				Destroy (GameObject.Find("Arrow-L(Clone)"));
+				Destroy (GameObject.Find("Arrow-U(Clone)"));
+				Destroy (GameObject.Find("Arrow-D(Clone)"));
+				Destroy (GameObject.Find("Touch(Clone)"));
+				Instantiate(Resources.Load("Arrow-R"), new Vector3(0.85f,0.85f,0.85f), Quaternion.identity);
+				right1 = false;
+			}
+			if ((up1 == true)){
+				Destroy (GameObject.Find("Arrow-R(Clone)"));
+				Destroy (GameObject.Find("Arrow-L(Clone)"));
+				Destroy (GameObject.Find("Arrow-U(Clone)"));
+				Destroy (GameObject.Find("Arrow-D(Clone)"));
+				Destroy (GameObject.Find("Touch(Clone)"));
+				Instantiate(Resources.Load("Arrow-U"), new Vector3(0.85f,0.85f,0.85f), Quaternion.identity);
+				up1 = false;
+			}
+			if ((down1 == true)){
+				Destroy (GameObject.Find("Arrow-R(Clone)"));
+				Destroy (GameObject.Find("Arrow-L(Clone)"));
+				Destroy (GameObject.Find("Arrow-U(Clone)"));
+				Destroy (GameObject.Find("Arrow-D(Clone)"));
+				Destroy (GameObject.Find("Touch(Clone)"));
+				Instantiate(Resources.Load("Arrow-D"), new Vector3(0.85f,0.85f,0.85f), Quaternion.identity);
+				down1 = false;
+			}
+			if ((touch1 == true)){
+				Destroy (GameObject.Find("Arrow-R(Clone)"));
+				Destroy (GameObject.Find("Arrow-L(Clone)"));
+				Destroy (GameObject.Find("Arrow-U(Clone)"));
+				Destroy (GameObject.Find("Arrow-D(Clone)"));
+				Destroy (GameObject.Find("Touch(Clone)"));
+				Instantiate(Resources.Load("Touch"), new Vector3(0.85f,0.85f,0.85f), Quaternion.identity);
+				touch1 = false;
+			}
+	}
+}
+}
